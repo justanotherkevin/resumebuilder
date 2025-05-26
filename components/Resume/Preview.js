@@ -31,12 +31,14 @@ const preview = url => {
 const Preview = () => {
     const parentRef = useRef(null);
     const resumeData = useSelector(state => state.resume);
-    const document = <Resume data={resumeData} />;
-    const [instance, updateInstance] = usePDF({ document });
-
+    const [instance, updateInstance] = usePDF({ document: <Resume data={resumeData} /> });
     useEffect(() => {
-        if (resumeData.saved) updateInstance(document);
-    }, [resumeData.saved]);
+        updateInstance(<Resume data={resumeData} />);
+    }, [resumeData?.saved]);
+
+    if (instance.loading) return <div>Loading ...</div>;
+
+    if (instance.error) return <div>Something went wrong: {error}</div>;
 
     return (
         <div ref={parentRef} className="relative w-full md:max-w-[24rem] 2xl:max-w-[28rem]">
