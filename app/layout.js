@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
                     <Header />
                     <div className="mx-auto  min-h-[calc(100vh-3rem)]">{children}</div>
                 </ReduxProvider>
-                <GoogleAnalytics gaId='G-WPXWXJ9MC2' />
+                {/* <GoogleAnalytics gaId='G-WPXWXJ9MC2' /> */}
             </body>
         </html>
     );
