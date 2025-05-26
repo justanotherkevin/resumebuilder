@@ -22,8 +22,8 @@ const store = configureStore({
         resume: resumeSlice,
     },
 });
-
-function debounce(func, timeout = 2500) {
+const DEFAULT_DEBOUNCE_DELAY = 500;
+function debounce(func, timeout = DEFAULT_DEBOUNCE_DELAY) {
     let timer;
     return (...args) => {
         clearTimeout(timer);
@@ -35,9 +35,10 @@ function debounce(func, timeout = 2500) {
 
 const saveState = debounce(() => {
     console.info('Saving State to Local Storage...');
-    localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+    // localStorage.setItem('reduxState', JSON.stringify(store.getState()));
 });
-
+// // store.subscribe() is a method that allows you to register a callback function that will be executed every time an action is dispatched and the state tree is updated. 
+// // So, saveState is called because it's subscribed to the store's updates.
 store.subscribe(saveState);
 
 export default store;

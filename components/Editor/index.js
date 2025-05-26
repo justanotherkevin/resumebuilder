@@ -18,8 +18,8 @@ const Editor = ({ tab }) => {
     };
 
     useEffect(() => {
-        const interval = setInterval(save, 10000);
-        return () => clearInterval(interval);
+        // const interval = setInterval(save, 10000);
+        // return () => clearInterval(interval);
     }, []);
 
     return (
