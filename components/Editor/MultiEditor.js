@@ -1,5 +1,3 @@
-'use client';
-
 import { useDispatch } from 'react-redux';
 import Input from '../UI/Input';
 import { useSelector } from 'react-redux';
